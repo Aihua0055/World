@@ -59,35 +59,27 @@ let data = {
     }
   });
   
-  
-  new Chart(document.getElementById("edu"), {
+  var years = [1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018]
+  var chinaHdi = [0.501,0.509,0.520,0.530,0.537,0.549,0.558,0.566,0.574,0.583,0.591,0.599,0.610,0.622,0.631,0.643,0.657,0.670,0.681,0.690,0.702,0.711,0.719,0.727,0.735,0.742,0.749,0.753,0.758 ];
+  var canadaHdi = [0.850,	0.853,	0.856,	0.854,	0.859,	0.861,	0.863,	0.863,	0.861,	0.864,	0.868,	0.872,	0.877,	0.882,	0.887,	0.892,	0.895,	0.891,	0.893,	0.893,	0.895,	0.899,	0.906,	0.910,	0.914,	0.917,	0.920,	0.921,	0.922  ];
+  var swedenHdi = [0.816,	0.818,	0.821,	0.840,	0.849,	0.857,	0.864,	0.874,	0.888,	0.893,	0.897,	0.900,	0.903,	0.908,	0.896,	0.899,	0.902,	0.905,	0.901,	0.899,	0.906,	0.906,	0.908,	0.927,	0.929,	0.932,	0.934,	0.935,	0.937  ];
+  var usHdi = [0.860,	0.862,	,	0.872,	0.875,	0.878,	0.879,,	0.884,	0.885,	0.881,	0.884,	0.886,	0.889,	0.892,	0.896,	0.899,	0.902,	0.907,	0.908,	0.911,	0.914,	0.916,	0.914,	0.915,	0.917,	0.919,	0.919,	0.920];
+  var japanHdi = [0.816,	0.821,	0.824,	0.829,	0.835,	0.840,	0.845,	0.848,	0.847,	0.850,	0.855,	0.859,	0.862,	0.865,	0.869,	0.873,	0.877,	0.880,	0.881,	0.880,	0.885,	0.890,	0.895,	0.900,	0.904,	0.906,	0.910,	0.913,	0.915];
+ 
+ 
+  var eduChart = new Chart(document.getElementById("edu"), {
     type: 'line',
   data: {
-    labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+    labels:years,
     datasets: [{ 
-        data: [86,114,106,106,107,111,133,221,783,2478],
-        label: "Africa",
+        data: chinaHdi,
+        label: "China",
         borderColor: "#3e95cd",
         fill: false
       }, { 
-        data: [282,350,411,502,635,809,947,1402,3700,5267],
-        label: "Asia",
+        data: usHdi,
+        label: "the U.S.",
         borderColor: "#8e5ea2",
-        fill: false
-      }, { 
-        data: [168,170,178,190,203,276,408,547,675,734],
-        label: "Europe",
-        borderColor: "#3cba9f",
-        fill: false
-      }, { 
-        data: [40,20,10,16,24,38,74,167,508,784],
-        label: "Latin America",
-        borderColor: "#e8c3b9",
-        fill: false
-      }, { 
-        data: [6,3,2,2,7,26,82,172,312,433],
-        label: "North America",
-        borderColor: "#c45850",
         fill: false
       }
     ]
@@ -95,7 +87,7 @@ let data = {
   options: {
     title: {
       display: true,
-      text: 'World population per region (in millions)',
+      text: 'Human Development Index',
       fontSize:35
     }
   }
@@ -149,6 +141,16 @@ new Chart(document.getElementById("income"), {
     }
 });
 
-//   new Chart(document.getElementById("edu"),{
+const addData = [1.501,1.509,0.520,0.530,0.537,0.549,0.558,0.566,0.574,0.583,0.591,0.599,0.610,0.622,0.631,0.643,0.657,0.670,0.681,0.690,0.702,0.711,0.719,0.727,0.735,0.742,0.749,0.753,0.758 ];
+const label = "add";
+var chart = eduChart;
 
-// });
+function updateEdu(chart,label,addData){
+    console.log(label);
+    // eduChart.data.labels.push(label);
+    // eduChart.data.datasets.forEach((dataset) => {
+    //     dataset.data.push(data);
+    // });
+    // eduChart.update();
+};
+

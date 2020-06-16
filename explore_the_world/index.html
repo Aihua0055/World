@@ -24,29 +24,34 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="global.html">Global</a>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="#">Global</a>
+            <a class="nav-link" href="hdi.html">HDI</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">By Country</a>
+            <a class="nav-link" href="gdp.html">GDP</a>
           </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="nobel.html">Nobel Laureate</a>
+        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              By Category
+              About
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="hdi.html">HDI</a>
-              <a class="dropdown-item" href="#">HealthCare</a>
-              <a class="dropdown-item" href="#">Education</a>
-              <a class="dropdown-item" href="#">Nobel Prize</a>
-              <a class="dropdown-item" href="#">GDP</a>
+              <a class="dropdown-item" href="hdi.html">Motivation</a>
+              <a class="dropdown-item" href="#">Data Source</a>
+              <a class="dropdown-item" href="#">Reference</a>
+              <a class="dropdown-item" href="#">Contact</a>
+    
 
 
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
+
         </ul>
       </div>
     </nav>
@@ -56,7 +61,7 @@
         <p class = "lead">Insights to answer it!</p>
         <hr class="my-4">
         <p>Stay at home, explore the world!</p>
-        <a class="btn btn-secondary btn-lg" href="about.html" role="button">Learn more</a>
+        <a class="btn btn-secondary btn-lg" href="about.html" role="button" onClick = "updateEdu()">Learn more</a>
     </div>
 
 
@@ -64,6 +69,7 @@
 
     <div class="container">
         <canvas id="edu" aria-label="line chart" role="img"></canvas>
+        <button id = "updateEdu"  value="updadateEdu" onclick="updateEdu()">Update</button>
         <canvas id="gdp" aria-label="bar chart" role="img"></canvas>
         <canvas id="income" aria-label="bar chart horizontal" role="img"></canvas>
         <canvas id="hdi" aria-label="donut chart" role="img"></canvas>
@@ -74,6 +80,7 @@
     </div>
 
  
+
 
     
 
