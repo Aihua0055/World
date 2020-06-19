@@ -5,7 +5,8 @@ var other = ['Australia','New Zealand','Egypt','Canada','Cuba','Mexico'];
 var europe = ['Austria','Norway','Switzerland','Ireland','Germany','Iceland','Sweden','Denmark','Finland','United Kingdom','Spain','France','Italy','Greece']
 var chinaHdi = [0.501,0.509,0.520,0.530,0.537,0.549,0.558,0.566,0.574,0.583,0.591,0.599,0.610,0.622,0.631,0.643,0.657,0.670,0.681,0.690,0.702,0.711,0.719,0.727,0.735,0.742,0.749,0.753,0.758 ];
 var usHdi = [0.860,0.862,0.867,	0.872,	0.875,	0.878,	0.879,0.881,	0.884,	0.885,	0.881,	0.884,	0.886,	0.889,	0.892,	0.896,	0.899,	0.902,	0.907,	0.908,	0.911,	0.914,	0.916,	0.914,	0.915,	0.917,	0.919,	0.919,	0.920];
-var series = [{
+var series = [
+  {
   name:'China',
   data:chinaHdi,
 
@@ -37,7 +38,8 @@ async function loadData(file){
        let element = {};
        element.name= data[hdi]["country"];
        element.data= data[hdi]["data"];
-       if(rank == 0){
+
+       if(rank == 0 ){
         chart.appendSeries(element);
        }
        if(rank >0 && rank <30){
@@ -63,15 +65,17 @@ async function loadData(file){
       //  }
 
      }
-    //  chart.toggleSeries('Australia');
-    //  chart.toggleSeries('Germany');
+
      for(const hdi in data){
+      console.log(data[hdi]);
       const rank = data[hdi]['hdiRank']
       let country = data[hdi]["country"]
 
-      if(rank<30 && rank!=15){
+
+      if(rank<30 && rank!=8){
         chart.toggleSeries(country);
       }
+
     //   if (!defaultSeries.includes(country)){
     //     name = data[hdi]["country"];
     //     chart.toggleSeries(name);
@@ -139,7 +143,6 @@ var options = {
 }
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
-
 
 
 // // check if the checkbox has any unchecked item
