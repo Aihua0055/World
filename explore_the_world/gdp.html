@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   </head>
     
   <body>
@@ -54,20 +55,36 @@
       </div>
     </nav>
     <div class="jumbotron">
-      <h1 class="display-4">Gross Domestic Product(GDP)</h1>
+      <h1 class="display-5">Gross Domestic Product(GDP)</h1>
       <p class = "lead">The Gross Domestic Product (GDP) of an economy is a measure of total production. More precisely, it is the monetary value of all goods and services produced within a country or region in a specific time period.  </p>
       <p class = "lead">Economic prosperity is measured as via gross domestic product (GDP) per capita, the value of all goods and services produced by a country in one year divided by the country’s population. </p>
      
   </div>
 
-    <div class="container">
-
-      <canvas id="gdp" aria-label="donut chart" role="img"></canvas>
-
-
-
+  <div class = "container">
+    <div id = "gdpChart"></div>
 
   </div>
+
+  <div id="chart-wrap">
+
+  
+    <!-- <div class = "legend">
+      <input type="checkbox" checked onclick="toggleSeries(this)" value="Series Column">
+      <label for="Column"> Column</label><br>
+      <input type="checkbox" checked onclick="toggleSeries(this)" value="Series Area">
+      <label for="Area"> Area</label><br>
+      <input type="checkbox"  onclick="toggleSeries(this)" value="Series Line">
+      <label for="Line"> Line</label><br><br>
+      
+
+   
+  <div id="chartDemo">
+  </div>
+
+  
+    </div>  -->
+</div>
 
 
 
