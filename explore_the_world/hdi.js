@@ -1,4 +1,4 @@
-var years = [1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019];
+var years = [1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018];
 var asian = ['Iran','Iraq','Israel','Nepal','Malaysia','Thailand','Turkey','Vietnam','Japan','Singapore','Hong Kong, China (SAR)','Korea (Republic of)','India'];
 
 var other = ['Australia','New Zealand','Egypt','Canada','Cuba','Mexico'];
@@ -18,85 +18,6 @@ var series = [
   data: usHdi
 }
 ];
-
-var barChartData = [];
-var barChartCountry = [];
-
-async function loadData(file){
-  d3.csv(file,function(d){
-
-    return{
-      country: d["Country"],
-      hdiRank: +d["HDI Rank (2018)"],
-      data: [ 
-             +d["1990"],+d["1991"],+d["1992"],+d["1993"],+d["1994"],+d["1995"],+d["1996"],+d["1997"],+d["1998"],+d["1999"],
-             +d["2000"],+d["2001"],+d["2002"],+d["2003"],+d["2004"],+d["2005"],+d["2006"],+d["2007"],+d["2008"],+d["2009"],
-             +d["2010"],+d["2011"],+d["2012"],+d["2013"],+d["2014"],+d["2015"],+d["2016"],+d["2016"],+d["2017"],+d["2018"]
-            ]
-    }
-
-  }).then(function(data){
-
-     
-     for(const hdi in data){
-       const rank = data[hdi]['hdiRank']
-       let element = {};
-       element.name= data[hdi]["country"];
-       element.data= data[hdi]["data"];
-
-       if(rank == 0 ){
-        chart.appendSeries(element);
-        // barChartData.push(data[hdi]["data"][29])
-        // barChartCountry.push(element.name);
-       }
-       if(rank >0 && rank <85){
-        element.name = 'No.' + rank +' \xa0'+ data[hdi]["country"];
-        chart.appendSeries(element);
-       }
-       
-      //  if (europe.includes(element.name)){
-      //   element.name = data[hdi]["country"]+ ' No.' + rank;
-      //   chart.appendSeries(element);
-      //  }
-       
-      //  if(asian.includes(element.name)){
-      //    element.name = data[hdi]["country"]+ ' No.' + rank;
-      //    chart.appendSeries(element);
-        
-      //  }
-
-      //  if(other.includes(element.name)){
-      //    element.name = data[hdi]["country"]+ ' No.' + rank;
-      //    chart.appendSeries(element);
-         
-      //  }
-
-     }
-
-     for(const hdi in data){
-
-      const rank = data[hdi]['hdiRank']
-      let country = data[hdi]["country"]
-      if (rank ==0){
-        chart.toggleSeries(country);
-      }
-      if(rank >0 && rank<85 && rank!=8){
-        name = 'No.' + rank +' \xa0'+ country;
-        chart.toggleSeries(name);
-      }
-
-    //   if (!defaultSeries.includes(country)){
-    //     name = data[hdi]["country"];
-    //     chart.toggleSeries(name);
-    //    }
-
-     }
-
-  });
-}
-
-loadData("hdi.csv");
-
 
 var options = {
   chart: {
@@ -168,6 +89,85 @@ var options = {
 }
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+var barChartData = [];
+var barChartCountry = [];
+
+async function loadData(file){
+  d3.csv(file,function(d){
+
+    return{
+      country: d["Country"],
+      hdiRank: +d["HDI Rank (2018)"],
+      data: [ 
+             +d["1990"],+d["1991"],+d["1992"],+d["1993"],+d["1994"],+d["1995"],+d["1996"],+d["1997"],+d["1998"],+d["1999"],
+             +d["2000"],+d["2001"],+d["2002"],+d["2003"],+d["2004"],+d["2005"],+d["2006"],+d["2007"],+d["2008"],+d["2009"],
+             +d["2010"],+d["2011"],+d["2012"],+d["2013"],+d["2014"],+d["2015"],+d["2016"],+d["2017"],+d["2018"]
+            ]
+    }
+
+  }).then(function(data){
+
+     
+     for(const hdi in data){
+       const rank = data[hdi]['hdiRank']
+       let element = {};
+       element.name= data[hdi]["country"];
+       element.data= data[hdi]["data"];
+
+       if(rank == 0 ){
+        chart.appendSeries(element);
+        // barChartData.push(data[hdi]["data"][29])
+        // barChartCountry.push(element.name);
+       }
+       if(rank >0 && rank <85){
+        element.name = 'No.' + rank +' \xa0'+ data[hdi]["country"];
+        chart.appendSeries(element);
+       }
+       
+      //  if (europe.includes(element.name)){
+      //   element.name = data[hdi]["country"]+ ' No.' + rank;
+      //   chart.appendSeries(element);
+      //  }
+       
+      //  if(asian.includes(element.name)){
+      //    element.name = data[hdi]["country"]+ ' No.' + rank;
+      //    chart.appendSeries(element);
+        
+      //  }
+
+      //  if(other.includes(element.name)){
+      //    element.name = data[hdi]["country"]+ ' No.' + rank;
+      //    chart.appendSeries(element);
+         
+      //  }
+
+     }
+
+     for(const hdi in data){
+
+      const rank = data[hdi]['hdiRank']
+      let country = data[hdi]["country"]
+      if (rank ==0){
+        chart.toggleSeries(country);
+      }
+      if(rank >0 && rank<85 && rank!=8){
+        name = 'No.' + rank +' \xa0'+ country;
+        chart.toggleSeries(name);
+      }
+
+    //   if (!defaultSeries.includes(country)){
+    //     name = data[hdi]["country"];
+    //     chart.toggleSeries(name);
+    //    }
+
+     }
+
+  });
+}
+
+loadData("hdi.csv");
+
 
 var barChartOptions = {
   series: [{
