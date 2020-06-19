@@ -5,17 +5,22 @@ var other = ['Australia','New Zealand','Egypt','Canada','Cuba','Mexico'];
 var europe = ['Austria','Norway','Switzerland','Ireland','Germany','Iceland','Sweden','Denmark','Finland','United Kingdom','Spain','France','Italy','Greece']
 var chinaHdi = [0.501,0.509,0.520,0.530,0.537,0.549,0.558,0.566,0.574,0.583,0.591,0.599,0.610,0.622,0.631,0.643,0.657,0.670,0.681,0.690,0.702,0.711,0.719,0.727,0.735,0.742,0.749,0.753,0.758 ];
 var usHdi = [0.860,0.862,0.867,	0.872,	0.875,	0.878,	0.879,0.881,	0.884,	0.885,	0.881,	0.884,	0.886,	0.889,	0.892,	0.896,	0.899,	0.902,	0.907,	0.908,	0.911,	0.914,	0.916,	0.914,	0.915,	0.917,	0.919,	0.919,	0.920];
+
+// TODO: add "Loading Data"
 var series = [
   {
-  name:'China',
+  name:'No.85 China',
   data:chinaHdi,
 
 },
 {
-  name: 'United States',
+  name: 'No.15 United States',
   data: usHdi
 }
 ];
+
+var barChartData = [];
+var barChartCountry = [];
 
 async function loadData(file){
   d3.csv(file,function(d){
@@ -41,9 +46,11 @@ async function loadData(file){
 
        if(rank == 0 ){
         chart.appendSeries(element);
+        // barChartData.push(data[hdi]["data"][29])
+        // barChartCountry.push(element.name);
        }
-       if(rank >0 && rank <30){
-        element.name = data[hdi]["country"];
+       if(rank >0 && rank <85){
+        element.name = 'No.' + rank +' \xa0'+ data[hdi]["country"];
         chart.appendSeries(element);
        }
        
@@ -67,13 +74,15 @@ async function loadData(file){
      }
 
      for(const hdi in data){
-      console.log(data[hdi]);
+
       const rank = data[hdi]['hdiRank']
       let country = data[hdi]["country"]
-
-
-      if(rank<30 && rank!=8){
+      if (rank ==0){
         chart.toggleSeries(country);
+      }
+      if(rank >0 && rank<85 && rank!=8){
+        name = 'No.' + rank +' \xa0'+ country;
+        chart.toggleSeries(name);
       }
 
     //   if (!defaultSeries.includes(country)){
@@ -88,11 +97,13 @@ async function loadData(file){
 
 loadData("hdi.csv");
 
+
 var options = {
   chart: {
     type: 'line',
     id:"chart"
   },
+
   legend: {
     horizontalAlign: 'center',
     fontSize:'13px',
@@ -130,10 +141,24 @@ var options = {
       style:{
         fontSize:'14px',
       }
-    }
+    },
+    title:{
+      text:"Years",
+      style:{
+        color:'black',
+        fontSize:'14PX'
+      },
+    },
   },
   yaxis: {
     categories: years,
+    title:{
+      text:"HDI Index",
+      style:{
+        color:'black',
+        fontSize:'14PX'
+      },
+    },
     labels:{
       style:{
         fontSize:'14px',
@@ -143,6 +168,39 @@ var options = {
 }
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+var barChartOptions = {
+  series: [{
+  data: barChartData
+}],
+  chart: {
+  type: 'bar',
+  id:'barChart',
+},
+title:{
+  text:"2018 HDI",
+  style:{
+    fontSize:'24px',
+    
+  },
+},
+plotOptions: {
+  bar: {
+    horizontal: true,
+  }
+},
+dataLabels: {
+  enabled: false
+},
+xaxis: {
+  categories: barChartCountry,
+ 
+}
+};
+
+// var barChart = new ApexCharts(document.querySelector("#barChart"), barChartOptions);
+// barChart.render();
+
 
 
 // // check if the checkbox has any unchecked item
