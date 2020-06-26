@@ -4,17 +4,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
-    <title>The World</title>
+    <title>Explore the World</title>
+    <link rel="icon" href="images/global.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="custom.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
 </head>
     
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Explore the World</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -56,37 +58,56 @@
       </div>
     </nav>
     <div class="jumbotron">
-        <h1 class="display-4">Hello, wonderful countries!</h1>
+        <h1 class="display-4">My World in Data</h1>
         <p class = "lead">Why life as usual in Sweden while covid-19 is changing everything? </p>
-        <p class = "lead">Insights to answer it!</p>
+        <p class = "lead">To get insights to answer it: we explored and visualized data of Human Development Index History, GDP of the past decades as well as Nobel Laureates!</p>
         <hr class="my-4">
         <p>Stay at home, explore the world!</p>
-        <a class="btn btn-secondary btn-lg" href="about.html" role="button" onClick = "updateEdu()">Learn more</a>
     </div>
 
 
 
 
     <div class="container">
-        <canvas id="edu" aria-label="line chart" role="img"></canvas>
-        <button id = "updateEdu"  value="updadateEdu" onclick="updateEdu()">Update</button>
-        <canvas id="gdp" aria-label="bar chart" role="img"></canvas>
-        <canvas id="income" aria-label="bar chart horizontal" role="img"></canvas>
-        <canvas id="hdi" aria-label="donut chart" role="img"></canvas>
+      <h4>Human Development Index (HDI) </h4>
+      <p>The Human Development Index (HDI) is an index that measures three key dimensions of human development. 
+      </p> 
+       <p> A long and healthy life – measured by life expectancy.<br>
+        Access to education – measured by expected years of schooling of children at school-entry age and mean years of schooling of the adult population.<br>
+       A decent standard of living – measured by Gross National Income per capita adjusted for the price level of the country.
+      </p>
+      <p>
+        The differences across the world are very large, ranging from the highest values in North America, Europe, Japan, and Oceania to the lowest in central Africa.
+      </p>
+      <a class="btn btn-info" href="hdi.html" role="button" >Check the dashboard</a>
+      <hr>
+      <h4>Gross Domestic Product (GDP)</h4>
+      <p>The Gross Domestic Product (GDP) of an economy is a measure of total production. More precisely, it is the monetary value of all goods and services produced within a country or region in a specific time period. While the definition of GDP is straightforward, accurately measuring it is a surprisingly difficult undertaking. And attempts to make comparisons over time and across borders are complicated by price, quality and currency differences. </p>
+      <a class="btn btn-info" href="gdp.html" role="button" >Check the dashboard</a>
 
+      <hr>
+      <h4>Nobel Prizes and Laureates</h4>
+      <p>The Nobel Prize is an international award administered by the Nobel Foundation in Stockholm, Sweden, and based on the fortune of Alfred Nobel, Swedish inventor and entrepreneur. In 1968, Sveriges Riksbank established The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel, founder of the Nobel Prize. Each prize consists of a medal, a personal diploma, and a cash award.</p>
+      <a class="btn btn-info" href="nobel.html" role="button" >Check the dashboard</a>
 
+      <hr>
 
 
     </div>
 
- 
-
-
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Theme uses Bootstrap. Inspired by <a href="https://ourworldindata.org">Our World in Data</a></span>
+      </div>
+    </footer>
     
 
     <script src="index.js"></script>
 
+
+
 </body>
+
   
 </html>
 

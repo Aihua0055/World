@@ -52,8 +52,8 @@ let data = {
       legend: { display: true, position:'bottom' },
       title: {
         display: true,
-        text: 'Human Development Index',
-        fontSize:35
+        text: 'GINI',
+        fontSize:20
 
       }
     }
@@ -88,7 +88,7 @@ let data = {
     title: {
       display: true,
       text: 'Human Development Index',
-      fontSize:35
+      fontSize:20
     }
   }
   });
@@ -111,8 +111,8 @@ new Chart(document.getElementById("gdp"), {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050',
-        fontSize:35
+        text: 'GDP',
+        fontSize:20
 
       }
     }
@@ -134,8 +134,8 @@ new Chart(document.getElementById("income"), {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050',
-        fontSize:35
+        text: 'Nobel Laureate',
+        fontSize:20
 
       }
     }

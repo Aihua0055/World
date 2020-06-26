@@ -31,14 +31,14 @@ var options = {
     }
   },
   title:{
-    text:"GDP",
+    text:"GDP per captia around the World",
     style:{
       fontSize:'24px',
       
     },
   },
   subtitle:{
-    text:'GDP',
+    text:'This line chart only show TOP25 countries with the highest GDP per captia',
     style:{
       fontSize:'14px',
       color:'#9699a2'
@@ -110,7 +110,7 @@ async function loadData(file){
         gdpChart.appendSeries(element);
 
        }
-       if(rank >0 && rank <85){
+       if(rank >0 && rank <25){
         gdpChart.appendSeries(element);
        }
 
@@ -124,7 +124,7 @@ async function loadData(file){
       if (rank ==0){
         gdpChart.toggleSeries(country);
       }
-      if(rank >0 && rank<85 && rank!=8){
+      if(rank >0 && rank<25 && rank!=8){
         gdpChart.toggleSeries(country);
       }
 
@@ -134,98 +134,5 @@ async function loadData(file){
   });
 }
 
-loadData("gdp_rank.csv");
-
-
-
-
-
-
-
-
-//////////////////
-
-
-
-var series = [{
-  name: 'Series Column',
-  type: 'column',
-  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
-}, {
-  name: 'Series Area',
-  type: 'area',
-  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
-}, {
-  name: 'Series Line',
-  type: 'line',
-  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
-}]
-var options = {
-
-  chart: {
-    height: 310,
-    type: 'line',
-    stacked: false,
-    id:'chart'
-  },
-  stroke: {
-    width: [0, 2, 5],
-    curve: 'smooth'
-  },
-  plotOptions: {
-    bar: {
-      columnWidth: '50%'
-    }
-  },
-  series: series,
-  fill: {
-    opacity: [0.85,0.25,1],
-    gradient: {
-      inverseColors: false,
-      shade: 'light',
-      type: "vertical",
-      opacityFrom: 0.85,
-      opacityTo: 0.55,
-      stops: [0, 100, 100, 100]
-    }
-  },
-  labels: ['01/01/2003', '02/01/2003','03/01/2003','04/01/2003','05/01/2003','06/01/2003','07/01/2003','08/01/2003','09/01/2003','10/01/2003','11/01/2003'],
-  markers: {
-    size: 0
-  },
-  xaxis: {
-    type:'datetime'
-  },
-  yaxis: {
-    title: {
-      text: 'Points',
-    },
-    min: 0
-  },
-  legend: {
-    show: false
-  },
-  tooltip: {
-    shared: true,
-    intersect: false,
-    y: {
-      formatter: function (y) {
-        if(typeof y !== "undefined") {
-          return  y.toFixed(0) + " points";
-        }
-        return y;
-        
-      }
-    }
-  }
-
-}
-
-// var chartDemo = new ApexCharts(
-//   document.querySelector("#chartDemo"),
-//   options
-// );
-
-// chartDemo.render();
-
+loadData("dataset/gdp_rank.csv");
 
