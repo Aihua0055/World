@@ -135,9 +135,6 @@ responsive: [{
 var prizeShareChart = new ApexCharts(document.querySelector("#prizeShareChart"), optionsPrize);
 prizeShareChart.render();
 
-// var countries = ['United States','United Kingdom','Germany','France','Sweden','Russia','Switzerland','Japan','Canada','Austria','Netherlands',
-// 'Italy','Poland','Denmark','Norway','India','Australia','South Africa','China'];
-
 var usLaureates = 0;
 var ukLaureates = 0;
 var germanyLaureates = 0;
@@ -214,7 +211,7 @@ function fetchData (url){
 
 fetchData(url);
 
-//List of countries by Nobel laureates per capita
+//List of countries by Nobel laureates per capita: to speed up, use hardcode here.
 var optionsRank = {
   series: [{
   name: 'Laureates/10 million people',
@@ -303,9 +300,7 @@ subtitle:{
 var countryRank = new ApexCharts(document.querySelector("#countryRank"), optionsRank);
 countryRank.render();
 
-// Bar
-
-// NobelPrize API 2.0 format
+// NobelPrize API 2.0 format. Could not find documendation that explains the data scheme.
 // {
 //   "laureates":[
 //   {
